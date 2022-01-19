@@ -1,6 +1,6 @@
 ### Description
 <p align="justify">
-This package provides an algorithm to characterize global fire regimes using fire occurence data from Google Earth Engine. Given a list of years, the algorithm will derive annual maps of fire occurrences, depicting per-pixel counts of months with active fires. These annual layers are then used to compute a series of metrics that characterize the temporal recurrence of fires:
+This package provides an algorithm to characterize global fire regimes using fire occurence data from Google Earth Engine. Given a list of years, the algorithm will derive annual, global maps of fire occurrences, depicting per-pixel counts of months with active fires. These annual layers are then used to compute a series of metrics that characterize the temporal recurrence of fires:
 </p>
 
 <br>
@@ -12,7 +12,7 @@ This package provides an algorithm to characterize global fire regimes using fir
 
 <br>
 <p align="justify">
-The FRI is expressed as the quotient between the number of years with fires and the number of years in the time-series. Then, for each pixel, fire map uses Running Length Encoding (RLE) to break a time-series of fire occurrences (with 1 for "fire" and 0 for "unburnt") into segments of equal value. The length of segments corresponding to "unburnt" periods are used to calculate MRI1, MRI2, and MRI3. The algorithm relies on global burned area maps derived monthly at a resolution of 500-m based on MODIS. For details on this data, <a href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD64A1">refer to the GEE's data catalog</a>.
+The FRI is expressed as the quotient between the number of years with fires and the number of years in the time-series. Then, for each pixel, the <i>firemap</i> algorithm uses Running Length Encoding (RLE) to break a time-series of fire occurrences (with 1 for "fire" and 0 for "unburnt") into segments of equal value. The length of segments corresponding to "unburnt" periods are used to calculate MRI1, MRI2, and MRI3. These calculations use monthly data with a resolution of 500-m, based on MODIS. For details on the source data, <a href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD64A1">refer to its description in GEE's data catalog</a>.
 </p>
 
 <br>
@@ -36,12 +36,12 @@ pip install firemap.zip
 
 ### Requirements.
 <p align="justify">
-When installed, the package will also install needed dependencies. However, given the algorithm uses GEE, some configuration work is inposed on the user. Specifically, one should follow the <a href="https://www.earthdatascience.org/tutorials/intro-google-earth-engine-python-api/">GEE api configuration tutorial<a/> to setup access to data and computational resources.
+Given this algorithm uses GEE, some configuration work is inposed on the user. Specifically, one should follow the <a href="https://www.earthdatascience.org/tutorials/intro-google-earth-engine-python-api/">GEE api configuration tutorial<a/>, which grants access to data and computational resources.
 </p>
 
 <br>
 
 ### Desclaimer
 <p align="justify">
-Note: the algorithm was designed to download data with a maximum resolution of 1-km, which is limited by the quota imposed by GEE on the size of files that can be directly downloaded after processing. Applying this algorithm at finer resolutions will require changes to the gee_download() function.
+At present, the algorithm works with arrays at a 1-km resolution, limited by: 1) GEE quotas on direct downloads, 2) memory requirements. Applying this algorithm at finer resolutions will require manual changes.
 </p>
