@@ -24,7 +24,8 @@ The FRI is expressed as the quotient between the number of years with fires and 
 `firemap` is not currently in PyPI, and therefore should be installed manually. To do so, please download the current repository as a zip file and use 
 </p>
 <br>
-```ruby
+
+```python
 pip install firemap.zip
 ```
 <br>
