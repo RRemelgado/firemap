@@ -4,8 +4,6 @@
 This package provides functions to download annual fire frequencies from 
 Google Earth Engine (i.e. number of months with active fires), based on 
 monthly, global burned area maps derived with MODIS at a 500 m resolution. 
-For details on the dataset, refer to the GEE's data catalog 
-(https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD64A1). 
 The download output is then used to derives spatial-temporal metrics that 
 characterize pixel-level fire regimes:
 
@@ -44,10 +42,8 @@ import ee
 
 def gee_download(data_path, year):
     
-    """ Returns annaul 
- 
-    Sum and return the ages of your son and daughter
- 
+    """ Downloads global maps of per-pixel fire frequencies
+    
     Parameters
     ------------
         path: str
@@ -180,6 +176,19 @@ def gee_download(data_path, year):
 
 
 def fire_regime(input_path, output_path):
+    
+    """ Characterizes fire regimes
+    
+    Parameters
+    ------------
+        input_path: str
+            Path to directory where to access annual GeoTiff layers
+        output_path: str
+            Path where to write fire regime layers GeoTiff layers
+    Return
+    -----------
+        GeoTiff layers on FRI, MRI1, MRI2, and MRI3
+    """
     
     #------------------------------------------------------------------------#
     # list input images 
