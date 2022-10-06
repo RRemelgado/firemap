@@ -1,6 +1,6 @@
 ### Description
 <p align="justify">
-This package provides an algorithm to characterize global fire regimes using fire occurence data from Google Earth Engine. Given a list of years, the algorithm will derive annual, global maps of fire occurrences, depicting per-pixel counts of months with active fires. These annual layers are then used to compute a series of metrics that characterize the temporal recurrence of fires:
+TAlgorithm to characterize global fire regimes using fire occurence data from Google Earth Engine. Given a list of years, the algorithm will derive annual, global maps of fire occurrences, depicting per-pixel counts of months with active fires. These are then translated into multi-temporal metrics that characterize the recurrence of fires:
 </p>
 
 <br>
@@ -12,7 +12,7 @@ This package provides an algorithm to characterize global fire regimes using fir
 
 <br>
 <p align="justify">
-The FRI is expressed as the quotient between the number of years with fires and the number of years in the time-series. Then, for each pixel, the <i>firemap</i> algorithm uses Running Length Encoding (RLE) to break a time-series of fire occurrences (with 1 for "fire" and 0 for "unburnt") into segments of equal value. The length of segments corresponding to "unburnt" periods are used to calculate MRI1, MRI2, and MRI3. These calculations use monthly data with a resolution of 500-m, based on MODIS. For details on the source data, <a href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD64A1">refer to its description in GEE's data catalog</a>.
+The FRI is expressed as the quotient between the number of years with fires and the number of years in the time-series. Then, for each pixel, the <i>firemap</i> algorithm uses Running Length Encoding (RLE) to break a time-series of fire occurrences (with 1 for "fire" and 0 for "unburnt") into segments of equal value. The length of segments corresponding to "unburnt" periods are used to calculate MRI1, MRI2, and MRI3. These calculations are based on monthly fire occurrence data data derived with MODIS. For details on the source data, <a href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MCD64A1">see its description in GEE's data catalog</a>.
 </p>
 
 <br>
@@ -43,5 +43,5 @@ Given this algorithm uses GEE, some configuration work is inposed on the user. S
 
 ### Desclaimer
 <p align="justify">
-At present, the algorithm works with arrays at a 1-km resolution, limited by: 1) GEE quotas on direct downloads, 2) memory requirements. Applying this algorithm at finer resolutions will require manual changes.
+At present, the algorithm works with arrays at a 1-km resolution, limited by: 1) GEE quotas on direct downloads, 2) memory requirements. This is meant to support my immediate needs, and scalability was not a priority concerned. Applying this algorithm at finer resolutions and for different spatial extents will require manual changes.
 </p>
