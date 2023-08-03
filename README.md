@@ -1,6 +1,6 @@
 ### Description
 <p align="justify">
-TAlgorithm to characterize global fire regimes using fire occurence data from Google Earth Engine. Given a list of years, the algorithm will derive annual, global maps of fire occurrences, depicting per-pixel counts of months with active fires. These are then translated into multi-temporal metrics that characterize the recurrence of fires:
+Algorithm to characterize global fire regimes using fire occurence data from Google Earth Engine. Given a list of years, the algorithm will derive annual, global maps of fire occurrences, depicting per-pixel counts of months with active fires. These are then translated into multi-temporal metrics that characterize the recurrence of fires:
 </p>
 
 <br>
